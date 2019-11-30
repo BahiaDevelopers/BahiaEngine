@@ -1,8 +1,9 @@
-function(beyond_module NAME SOURCES)
+macro(beyond_module NAME SOURCES)
     message("${NAME} @ ${SOURCES}")
     add_library(
             ${NAME}
-            ${SOURCES}
+            STATIC
+            "${SOURCES}"
     )
     set_target_properties(
             ${NAME}
@@ -16,4 +17,4 @@ function(beyond_module NAME SOURCES)
             $<INSTALL_INTERFACE:include>
     )
     message("Include at ${CMAKE_CURRENT_SOURCE_DIR}/include")
-endfunction()
+endmacro()

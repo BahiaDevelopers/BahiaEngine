@@ -8,17 +8,20 @@ namespace beyond {
 
     template<typename T>
     class Extension {
+    public:
         virtual void apply(T &target) = 0;
     };
 
     template<typename T>
     class ExtensibleMixin {
     private:
-        std::vector <T> extensions;
+        std::vector<Extension<T> *> extensions;
     public:
-        void apply(Extension<T> extension) {
-            extension.apply(*this)
+        void apply(Extension<T> *extension) {
+            extension->apply(*static_cast<T *>(this));
+            extensions.push_back(extension);
         }
+
 
     };
 }
