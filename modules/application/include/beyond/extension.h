@@ -21,7 +21,19 @@ namespace beyond {
             extension->apply(*static_cast<T *>(this));
             extensions.push_back(extension);
         }
+/*
 
+        template<typename E>
+        E *find_extension() {
+            for (Extension<T> *ext : extensions) {
+                E candidate = dynamic_cast<E *>(ext);
+                if (candidate != nullptr) {
+                    return candidate;
+                }
+            }
+            return nullptr;
+        }
+*/
 
     };
 }

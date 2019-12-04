@@ -2,6 +2,6 @@
 #include <beyond/gl/opengl.h>
 
 int main() {
-    beyond::Application application;
-    application.apply(new beyond::OpenGL());
+    beyond::Application app;
+    app.apply(new beyond::OpenGL());
 }

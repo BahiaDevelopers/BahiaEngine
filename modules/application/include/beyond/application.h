@@ -5,7 +5,10 @@
 
 namespace beyond {
     class Application : public ExtensibleMixin<Application> {
+    public:
+        Application() = default;
 
+        ~Application() = default;
     };
 }
 #endif
