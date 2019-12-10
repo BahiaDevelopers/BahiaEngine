@@ -1,12 +1,13 @@
-beyond_module(
-        opengl
+set(
+        OPENGL_ALL
         include/beyond/gl/opengl.h
         include/beyond/gl/components.h
         src/beyond/gl/opengl.cpp
 )
-find_package(GLEW REQUIRED)
-find_package(PkgConfig REQUIRED)
-pkg_search_module(GLFW REQUIRED glfw3)
+beyond_module(
+        opengl
+        "${OPENGL_ALL}"
+)
 target_include_directories(
         opengl
         PUBLIC

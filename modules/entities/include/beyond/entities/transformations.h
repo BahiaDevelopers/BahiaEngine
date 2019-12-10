@@ -48,9 +48,9 @@ namespace beyond {
 
         const std::optional<Translation> &getTranslation() const;
 
-        const std::option<Rotation> &getRotation() const;
+        const std::optional<Rotation> &getRotation() const;
 
-        const std::option<Scale> &getScale() const;
+        const std::optional<Scale> &getScale() const;
     };
 }
 #endif

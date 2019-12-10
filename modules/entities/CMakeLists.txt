@@ -9,7 +9,6 @@ beyond_module(
         "${ENTITIES_ALL}"
 
 )
-find_package(glm REQUIRED)
 target_link_libraries(
         entities
         application
