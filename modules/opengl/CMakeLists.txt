@@ -10,5 +10,5 @@ beyond_module(
 )
 
 target_link_libraries(
-        opengl application entities glfw
+        opengl application entities glfw glew_s
 )

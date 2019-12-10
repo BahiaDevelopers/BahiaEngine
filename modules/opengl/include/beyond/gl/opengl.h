@@ -2,6 +2,7 @@
 #define BEYONDENGINE_OPENGL_H
 
 #include <beyond/application.h>
+#include <GL/glew.h>
 #include <GLFW/glfw3.h>
 
 namespace beyond {
@@ -16,6 +17,7 @@ namespace beyond {
 
         void apply(Application &target) override;
 
+        GLFWwindow *getWindow() const;
     };
 
 

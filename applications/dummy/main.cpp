@@ -3,5 +3,9 @@
 
 int main() {
     beyond::Application app;
-    app.apply(new beyond::OpenGL());
+    auto gl = new beyond::OpenGL();
+    app.apply(gl);
+    while (!glfwWindowShouldClose(gl->getWindow())) {
+        glfwPollEvents();
+    }
 }
