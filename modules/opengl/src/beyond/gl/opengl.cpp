@@ -5,6 +5,11 @@
 namespace beyond {
     void OpenGL::apply(Application &target) {
 
+        target.getEarlyStep() += [&]() {
+            if (glfwWindowShouldClose(OpenGL::window)) {
+                target.setExecuting(false);
+            }
+        };
     }
 
     OpenGL::OpenGL() : window(nullptr) {
