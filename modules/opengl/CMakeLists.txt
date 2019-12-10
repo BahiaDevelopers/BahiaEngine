@@ -8,13 +8,7 @@ beyond_module(
         opengl
         "${OPENGL_ALL}"
 )
-target_include_directories(
-        opengl
-        PUBLIC
-        ${GLFW_INCLUDE_DIRS}
-)
-target_link_libraries(opengl ${GLFW_LIBRARIES})
 
 target_link_libraries(
-        opengl application entities
+        opengl application entities glfw
 )
