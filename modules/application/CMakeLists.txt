@@ -5,6 +5,7 @@ set(
         include/beyond/extension.h
         include/beyond/event.h
         src/beyond/application.cpp
+        src/beyond/utilities/layout.cpp
 )
 beyond_module(
         application

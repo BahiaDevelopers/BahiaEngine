@@ -1,7 +1,13 @@
 set(
         OPENGL_ALL
+        include/beyond/gl/mesh.h
+        include/beyond/gl/material.h
         include/beyond/gl/opengl.h
         include/beyond/gl/components.h
+        include/beyond/gl/buffers/buffers.h
+        include/beyond/gl/traits/camera.h
+        include/beyond/gl/buffers/vertex_buffer.h
+        include/beyond/gl/buffers/index_buffer.h
         src/beyond/gl/opengl.cpp
 )
 beyond_module(

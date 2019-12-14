@@ -38,19 +38,21 @@ namespace beyond {
     class Scale : public Transformation<glm::vec3> {
     };
 
-    class Transform : public Extension<Entity> {
+    class Transform : public Trait {
     private:
-        std::optional<Translation> translation;
-        std::optional<Rotation> rotation;
-        std::optional<Scale> scale;
+        std::optional<Translation *> translation;
+        std::optional<Rotation *> rotation;
+        std::optional<Scale *> scale;
     public:
         Transform();
 
-        const std::optional<Translation> &getTranslation() const;
+        void apply(Entity &target) override;
 
-        const std::optional<Rotation> &getRotation() const;
+        const std::optional<Translation *> &getTranslation() const;
 
-        const std::optional<Scale> &getScale() const;
+        const std::optional<Rotation *> &getRotation() const;
+
+        const std::optional<Scale *> &getScale() const;
     };
 }
 #endif

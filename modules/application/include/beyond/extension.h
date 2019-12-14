@@ -2,6 +2,7 @@
 #define BEYONDENGINE_EXTENSION_H
 
 #include <vector>
+#include <beyond/event.h>
 
 namespace beyond {
 
@@ -16,15 +17,19 @@ namespace beyond {
     class ExtensibleMixin {
     private:
         std::vector<Extension<T> *> extensions;
+        Event<Extension<T> *> onExtensionApplied;
     public:
         void apply(Extension<T> *extension) {
             extension->apply(*static_cast<T *>(this));
             extensions.push_back(extension);
         }
-/*
+
+        Event<Extension<T> *> &getOnExtensionApplied() {
+            return onExtensionApplied;
+        }
 
         template<typename E>
-        E *find_extension() {
+        E *findExtension() {
             for (Extension<T> *ext : extensions) {
                 E candidate = dynamic_cast<E *>(ext);
                 if (candidate != nullptr) {
@@ -33,8 +38,23 @@ namespace beyond {
             }
             return nullptr;
         }
-*/
 
+        template<typename E, typename ...A>
+        void ensureHas(A... args) {
+            if (findExtension<E>() == nullptr) {
+                apply(new E(std::forward(args...)));
+            }
+        }
+
+        template<typename E, typename ...A>
+        E *findOrAddExtension(A... args) {
+            E *ext = findOrAddExtension<E>();
+            if (ext == nullptr) {
+                ext = new E(std::forward(args...));
+                apply(ext);
+            }
+            return ext;
+        }
     };
 }
 #endif

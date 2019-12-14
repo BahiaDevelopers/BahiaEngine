@@ -1,3 +1,3 @@
 add_subdirectory(application)
-add_subdirectory(opengl)
 add_subdirectory(entities)
+add_subdirectory(opengl)
