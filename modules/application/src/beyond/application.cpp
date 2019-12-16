@@ -1,4 +1,5 @@
 #include <beyond/application.h>
+#include <iostream>
 
 namespace beyond {
     Event<> &Application::getEarlyStep() {
@@ -22,8 +23,10 @@ namespace beyond {
     }
 
     void Application::execute() {
+
         executing = true;
         while (executing) {
+
             earlyStep();
             step();
             lateStep();

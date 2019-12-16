@@ -11,25 +11,15 @@ namespace beyond {
         Scene *scene;
         Event<> earlyStep, step, lateStep;
     public:
-        explicit Entity(Scene *scene) : scene(scene), earlyStep(), step(), lateStep() {
+        explicit Entity(Scene *scene);
 
-        }
+        Event<> &getEarlyStep();
 
-        Event<> &getEarlyStep() {
-            return earlyStep;
-        }
+        Event<> &getStep();
 
-        Event<> &getStep() {
-            return step;
-        }
+        Event<> &getLateStep();
 
-        Event<> &getLateStep() {
-            return lateStep;
-        }
-
-        Scene *getScene() {
-            return scene;
-        }
+        Scene *getScene();
     };
 
     typedef Extension<Entity> Trait;

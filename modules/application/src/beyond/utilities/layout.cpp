@@ -10,7 +10,7 @@ namespace beyond {
         return elementCount;
     }
 
-    uint8_t LayoutElement::getElementSize() {
+    uint8_t LayoutElement::getElementSize() const {
         return elementLength * elementCount;
     }
 

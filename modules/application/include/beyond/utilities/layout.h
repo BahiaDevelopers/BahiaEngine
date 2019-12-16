@@ -27,21 +27,29 @@ namespace beyond {
 
         uint8_t getElementCount() const;
 
-        uint8_t getElementSize();
+        uint8_t getElementSize() const;
     };
 
     template<typename T>
     struct Layout {
-    public:
-
-
     private:
         std::vector<T> elements;
-    public:
-        template<typename ...A>
-        void emplace_element(A... args) {
-            elements.emplace_back(std::forward(args...));
+    protected:
+        virtual void onAdded(const T &element) {
+
         }
+
+    public:
+        const std::vector<T> &getElements() const {
+            return elements;
+        }
+
+        template<typename ...A>
+        void emplace(A... args) {
+            T &element = elements.emplace_back(args...);
+            onAdded(element);
+        }
+
     };
 }
 #endif

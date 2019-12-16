@@ -10,20 +10,33 @@ namespace beyond {
         GLenum type;
         bool normalized;
     public:
+        VertexLayoutElement(uint8_t elementLength, uint8_t elementCount, GLenum type, bool normalized);
+
         GLenum getType() const;
 
         bool isNormalized() const;
     };
 
-    typedef Layout<VertexLayoutElement> VertexLayout;
+    class VertexLayout : public Layout<VertexLayoutElement> {
+    private:
+        uint32_t stride = 0;
+    protected:
+        void onAdded(const VertexLayoutElement &element) override;
 
-    struct VertexBuffer : BindableMixin<GL_ARRAY_BUFFER> {
+    public:
+        uint32_t getStride() const;
+    };
+
+    struct VertexBuffer : public BindableMixin<GL_ARRAY_BUFFER> {
     private:
         VertexLayout layout;
     public:
+        const VertexLayout &getLayout() const;
+
         VertexBuffer(
                 VertexLayout layout,
-                const std::vector<uint8_t> &data
+                void *data,
+                size_t size
         );
     };
 

@@ -2,7 +2,10 @@ set(
         ENTITIES_ALL
         include/beyond/entities/entity.h
         include/beyond/entities/transformations.h
+        include/beyond/entities/scene.h
+        src/beyond/entities/entity.cpp
         src/beyond/entities/transformations.cpp
+        src/beyond/entities/scene.cpp
 )
 beyond_module(
         entities

@@ -1,7 +1,7 @@
 #include <beyond/gl/buffers/index_buffer.h>
 
 namespace beyond {
-    IndexBuffer::IndexBuffer(std::vector <uint16_t> buf) {
+    IndexBuffer::IndexBuffer(std::vector<uint16_t> buf) : count(buf.size()) {
         glNamedBufferData(
                 GL_INDEX_ARRAY,
                 buf.size(),

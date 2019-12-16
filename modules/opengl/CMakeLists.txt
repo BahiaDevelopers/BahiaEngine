@@ -3,7 +3,7 @@ set(
         include/beyond/gl/mesh.h
         include/beyond/gl/material.h
         include/beyond/gl/opengl.h
-        include/beyond/gl/components.h
+        include/beyond/gl/traits/drawable.h
         include/beyond/gl/buffers/buffers.h
         include/beyond/gl/traits/camera.h
         include/beyond/gl/buffers/vertex_buffer.h

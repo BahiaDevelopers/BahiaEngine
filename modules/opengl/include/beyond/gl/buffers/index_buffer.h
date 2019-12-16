@@ -8,6 +8,7 @@ namespace beyond {
 
     struct IndexBuffer : BindableMixin<GL_INDEX_ARRAY> {
     private:
+        size_t count;
     public:
         explicit IndexBuffer(
                 std::vector<uint16_t> buf

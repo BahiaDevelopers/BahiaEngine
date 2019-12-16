@@ -5,8 +5,17 @@
 #include <beyond/application.h>
 
 namespace beyond {
-    class Scene : public Extension<Application> {
+    class Entity;
 
+    class Scene : public Extension<Application> {
+    private:
+        std::vector<Entity *> entities;
+    public:
+        void addEntity(Entity *entity);
+
+        void apply(Application &target) override;
+
+        const std::vector<Entity *> &getEntities() const;
     };
 }
 #endif //BEYONDENGINE_SCENE_H

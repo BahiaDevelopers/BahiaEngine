@@ -7,6 +7,7 @@
       <file path="$PROJECT_DIR$/modules/application/src" />
       <file path="$PROJECT_DIR$/modules/entities/include" />
       <file path="$PROJECT_DIR$/modules/entities/include/beyond" />
+      <file path="$PROJECT_DIR$/modules/entities/src" />
       <file path="$PROJECT_DIR$/modules/opengl/include" />
       <file path="$PROJECT_DIR$/modules/opengl/src" />
     </sourceRoots>

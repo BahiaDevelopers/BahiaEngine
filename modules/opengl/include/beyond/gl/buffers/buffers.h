@@ -19,11 +19,11 @@ namespace beyond {
         }
 
     public:
-        void bind() {
+        void bind() const {
             glBindBuffer(TARGET, id);
         }
 
-        void unbind() {
+        void unbind() const {
             glBindBuffer(TARGET, 0);
         }
     };

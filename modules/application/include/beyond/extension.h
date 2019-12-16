@@ -19,9 +19,17 @@ namespace beyond {
         std::vector<Extension<T> *> extensions;
         Event<Extension<T> *> onExtensionApplied;
     public:
+
+
         void apply(Extension<T> *extension) {
             extension->apply(*static_cast<T *>(this));
             extensions.push_back(extension);
+        }
+
+        template<typename E>
+        E *applyWith(E *extension) {
+            apply(extension);
+            return extension;
         }
 
         Event<Extension<T> *> &getOnExtensionApplied() {
@@ -31,7 +39,7 @@ namespace beyond {
         template<typename E>
         E *findExtension() {
             for (Extension<T> *ext : extensions) {
-                E candidate = dynamic_cast<E *>(ext);
+                E *candidate = dynamic_cast<E *>(ext);
                 if (candidate != nullptr) {
                     return candidate;
                 }
@@ -42,7 +50,7 @@ namespace beyond {
         template<typename E, typename ...A>
         void ensureHas(A... args) {
             if (findExtension<E>() == nullptr) {
-                apply(new E(std::forward(args...)));
+                apply(new E(args...));
             }
         }
 
